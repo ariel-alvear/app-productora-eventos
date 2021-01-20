@@ -1,0 +1,38 @@
+<%= form_with(model: concert) do |form| %>
+    <% if concert.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(concert.errors.count, "error") %> prohibited this concert from being saved:
+        </h2>
+
+        <ul>
+            <% concert.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>
+
+    <div class="field">
+        <%= form.label :participants %>
+        <%= form.text_field :participants %>
+    </div>
+
+    <div class="field">
+        <%= form.label :duration %>
+        <%= form.time_field :duration %>
+    </div>
+
+    <div class="field">
+        <%= form.label :concert_date %>
+        <%= form.date_field :concert_date %>
+    </div>
+
+    <div class="field">
+        <%= form.label :group_id %>
+        <%= form.select(:Group_id, options_for_select(@groups)) %>
+    </div>
+
+    <div class="actions">
+        <%= form.submit %>
+    </div>
+<% end %>

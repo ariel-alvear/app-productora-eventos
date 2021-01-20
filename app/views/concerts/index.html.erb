@@ -14,7 +14,7 @@
         <% @concerts.each do |concert| %>
             <tr>
                 <td><%= concert.participants %></td>
-                <td><%= concert.duration %></td>
+                <td><%= concert.duration.strftime("%T") %></td>
                 <td><%= concert.concert_date %></td>
                 <td><%= concert.Group_id %></td>
 
