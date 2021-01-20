@@ -9,6 +9,7 @@ class ConcertsController < ApplicationController
     end
 
     def new
+        @concert = Concert.new 
         @groups = Group.all
     end
 
@@ -22,6 +23,7 @@ class ConcertsController < ApplicationController
 
     def create
         @concert = Concert.new(concert_params)
+        @concert.save
     end
 
     def destroy
