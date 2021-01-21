@@ -24,11 +24,16 @@ class ConcertsController < ApplicationController
     def create
         @concert = Concert.new(concert_params)
         @concert.save
-        @groups = Group.all
+        respond_to do |format|
+            format.html { redirect_to concerts_url, notice: 'Concert was successfully created.' }
+        end
     end
 
     def destroy
         @concert.destroy
+        respond_to do |format|
+            format.html { redirect_to concerts_url, notice: 'Concert was successfully destroyed.' }
+        end
     end
 
     private
