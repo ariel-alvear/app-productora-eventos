@@ -6,7 +6,7 @@
             <th>Participants</th>
             <th>Duration</th>
             <th>Concert date</th>
-            <th>Group id</th>
+            <th>Group</th>
         </tr>
     </thead>
 
@@ -16,7 +16,7 @@
                 <td><%= concert.participants %></td>
                 <td><%= concert.duration.strftime("%T") %></td>
                 <td><%= concert.concert_date %></td>
-                <td><%= concert.Group_id %></td>
+                <td><%= concert.get_group_name %></td>
 
                 <br>
                 
