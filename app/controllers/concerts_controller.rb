@@ -24,6 +24,7 @@ class ConcertsController < ApplicationController
     def create
         @concert = Concert.new(concert_params)
         @concert.save
+        @groups = Group.all
     end
 
     def destroy
@@ -37,6 +38,6 @@ class ConcertsController < ApplicationController
     end
 
     def concert_params
-        params.require(:concert).permit(:participants, :duration, :concert_date, :group_id)
+        params.require(:concert).permit(:participants, :duration, :concert_date, :Group_id)
     end
 end
