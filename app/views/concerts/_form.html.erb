@@ -28,8 +28,11 @@
     </div>
 
     <div class="field">
-        <%= form.label :Group_id %>
-        <%= form.text_field :Group_id %>
+        <select name="concert[Group_id]">
+            <% @groups.each do |group| %>
+                <option value="<%= group.id %>"><%= group.name %></option>
+            <% end %>
+        </select>
     </div>
 
     <div class="actions">
