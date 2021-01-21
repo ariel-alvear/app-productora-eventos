@@ -1,5 +1,5 @@
 class ConcertsController < ApplicationController
-    before_action :set_book, only: [:show, :edit, :update, :destroy]
+    before_action :set_concert, only: [:show, :edit, :update, :destroy]
 
     def index
         @concerts = Concert.all
@@ -38,7 +38,7 @@ class ConcertsController < ApplicationController
 
     private
     # Use callbacks to share common setup or constraints between actions.
-    def set_book
+    def set_concert
         @concert = Concert.find(params[:id])
     end
 

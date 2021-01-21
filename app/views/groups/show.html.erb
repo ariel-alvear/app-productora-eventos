@@ -1,0 +1,19 @@
+<h1>Group Show</h1>
+
+<p>
+    <strong>Name:</strong>
+    <%= @group.name %>
+</p>
+
+<p>
+    <strong>Members:</strong>
+    <%= @group.members %>
+</p>
+
+<p>
+    <strong>Members Gender:</strong>
+    <%= @group.membersgender %>
+</p>
+
+<%= link_to 'Edit', edit_group_path(@group) %>
+<%= link_to 'Back', groups_path %>
