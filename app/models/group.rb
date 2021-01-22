@@ -1,5 +1,5 @@
 class Group < ApplicationRecord
-    has_many :concerts
+    has_many :concerts, dependent: :destroy
 
     enum membersgender: [:men, :woman, :band]
 
