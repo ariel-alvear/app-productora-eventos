@@ -20,5 +20,22 @@
     <%= @group.concerts_this_month %>
 </p>
 
+<p>
+    <strong>Last concert:</strong>
+    <%= @group.last_concert %>
+</p>
+
+<p>
+    <strong>Max number of participants in concert:</strong>
+    <%= @group.max_participants_in_concert %>
+</p>
+
+<p>
+    <strong>Max concert duration:</strong>
+    <%= @group.max_concert_duration %>
+</p>
+
+
+
 <%= link_to 'Edit', edit_group_path(@group) %>
 <%= link_to 'Back', groups_path %>

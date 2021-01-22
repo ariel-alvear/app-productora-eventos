@@ -34,4 +34,22 @@ class Group < ApplicationRecord
         concerts_month.count
     end
 
+    def last_concert
+        @concerts = Concert.where(Group_id: id)
+        the_last_concert = @concerts.map { |concert| concert.concert_date }
+        the_last_concert.max.strftime("%Y, %B, %A")
+    end
+
+    def max_participants_in_concert
+        @concerts = Concert.where(Group_id: id)
+        max_participants = @concerts.map { |concert| concert.participants }
+        max_participants.max 
+    end
+
+    def max_concert_duration
+        @concerts = Concert.where(Group_id: id)
+        max_duration = @concerts.map { |concert| concert.duration }
+        Time.at((max_duration.max)*60).utc.strftime("%H:%M:%S") #minutes to seconds, then to format HH:MM:SS
+    end
+
 end
