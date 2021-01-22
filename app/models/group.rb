@@ -13,19 +13,15 @@ class Group < ApplicationRecord
 
     def debut
         @concerts = Concert.where(Group_id: id)
-        dates = []
-        @concerts.each do |concert|
-            dates.push(concert.concert_date)
-        end
+        dates = @concerts.map { |concert| concert.concert_date }
         dates.min
     end
 
     def total_asistants_over_time
         @concerts = Concert.where(Group_id: id)
-        asistants = []
-        @concerts.each do |concert|
-            asistants.push(concert.participants)
-        end
+        asistants = @concerts.map { |concert| concert.participants }
         asistants.sum
     end
+
+   
 end
