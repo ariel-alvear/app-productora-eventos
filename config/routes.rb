@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   resources :concerts
   resources :groups
+
+  root 'groups#index'
 end
