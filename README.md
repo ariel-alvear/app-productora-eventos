@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Aplicación para crear conciertos que pertenecen a grupos.
 
-Things you may want to cover:
+Al borrar grupos, se borran sus conciertos.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+En vista show se muestran detalles de los conciertos del grupo.
