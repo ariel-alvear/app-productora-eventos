@@ -10,4 +10,8 @@ class Group < ApplicationRecord
     def concerts_count
         Concert.where(Group_id: id).count
     end
+
+    def debut
+        Concert.where(Group_id: id).where(Concert.concert_date).min
+    end
 end

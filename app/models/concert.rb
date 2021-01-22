@@ -4,4 +4,8 @@ class Concert < ApplicationRecord
   def get_group_name
     self.Group.name
   end
+
+  def to_s
+    concert_date
+  end
 end
