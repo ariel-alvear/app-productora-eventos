@@ -6,4 +6,8 @@ class Group < ApplicationRecord
     def to_s
         name
     end
+
+    def concerts_count
+        Concert.where(Group_id: id).count
+    end
 end
