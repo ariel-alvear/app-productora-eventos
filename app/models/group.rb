@@ -19,4 +19,13 @@ class Group < ApplicationRecord
         end
         dates.min
     end
+
+    def total_asistants_over_time
+        @concerts = Concert.where(Group_id: id)
+        asistants = []
+        @concerts.each do |concert|
+            asistants.push(concert.participants)
+        end
+        asistants.sum
+    end
 end
