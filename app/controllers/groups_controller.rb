@@ -21,9 +21,12 @@ class GroupsController < ApplicationController
 
     def create
         @group = Group.new(group_params)
-        @group.save
         respond_to do |format|
-            format.html { redirect_to groups_url, notice: 'Group was successfully created.' }
+            if @group.save
+                format.html { redirect_to concerts_url, notice: 'Group was successfully created.' }
+            else
+                format.html { render :new }
+            end
         end
     end
 

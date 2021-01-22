@@ -2,7 +2,12 @@ class Group < ApplicationRecord
     has_many :concerts, dependent: :destroy
 
     enum membersgender: [:men, :woman, :band]
-
+    
+    validates :members, presence: true
+    validates :membersgender, presence: true
+    validates :name, presence: true
+    validates :members, :numericality => { :greater_than => 0 }
+    
     def to_s
         name
     end

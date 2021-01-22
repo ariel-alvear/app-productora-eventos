@@ -23,9 +23,13 @@ class ConcertsController < ApplicationController
 
     def create
         @concert = Concert.new(concert_params)
-        @concert.save
+        @groups = Group.all
         respond_to do |format|
-            format.html { redirect_to concerts_url, notice: 'Concert was successfully created.' }
+            if @concert.save
+                format.html { redirect_to concerts_url, notice: 'Concert was successfully created.' }
+            else
+                format.html { render :new }
+            end
         end
     end
 
