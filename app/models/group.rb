@@ -19,13 +19,21 @@ class Group < ApplicationRecord
     def debut
         @concerts = Concert.where(Group_id: id)
         dates = @concerts.map { |concert| concert.concert_date }
-        dates.min
+        if dates.any?
+            dates.min
+        else
+            "This band don't have concerts"
+        end
     end
 
     def total_asistants_over_time
         @concerts = Concert.where(Group_id: id)
         asistants = @concerts.map { |concert| concert.participants }
-        asistants.sum
+        if asistants.any?
+            asistants.sum
+        else
+            "This band don't have concerts"
+        end
     end
 
     def concerts_this_month
@@ -36,25 +44,41 @@ class Group < ApplicationRecord
                 concerts_month.push(concert.concert_date)
             end
         end
-        concerts_month.count
+        if concerts_month.any?
+            concerts_month.count
+        else
+            "This band don't have concerts this month"
+        end
     end
 
     def last_concert
         @concerts = Concert.where(Group_id: id)
         the_last_concert = @concerts.map { |concert| concert.concert_date }
-        the_last_concert.max.strftime("%Y, %B, %A")
+        if the_last_concert.any?
+            the_last_concert.max.strftime("%Y, %B, %A")
+        else
+            "This band don't have concerts"
+        end
     end
 
     def max_participants_in_concert
         @concerts = Concert.where(Group_id: id)
         max_participants = @concerts.map { |concert| concert.participants }
-        max_participants.max 
+        if max_participants.any?
+            max_participants.max 
+        else
+            "This band don't have concerts"
+        end
     end
 
     def max_concert_duration
         @concerts = Concert.where(Group_id: id)
         max_duration = @concerts.map { |concert| concert.duration }
-        Time.at((max_duration.max)*60).utc.strftime("%H:%M:%S") #minutes to seconds, then to format HH:MM:SS
+        if max_duration.any?
+            Time.at((max_duration.max)*60).utc.strftime("%H:%M:%S") #minutes to seconds, then to format HH:MM:SS
+        else
+            "This band don't have concerts"
+        end
     end
 
 end
